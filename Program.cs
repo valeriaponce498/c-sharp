@@ -3,106 +3,11 @@
 namespace inventario
 {
     class Program
-    {
-       static string [,] productos = new string[5,3]
-        {
-            { "001", "iPhone X", "0" },
-            { "002", "Laptop Dell", "5" },
-            { "003", "Monitor Samsung", "2" },
-            { "004", "Mouse", "100" },
-            { "005", "HeadSet", "25" }
-        };
-
-        static void listarproductos(){
-            Console.Clear();
-            Console.WriteLine("");
-            Console.WriteLine("Listado de Productos");
-            Console.WriteLine("********************");
-            Console.WriteLine("Codigo, Descripcion y Existencia");
-
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(productos[i, 0] + " | " + productos[i, 1] + " | " + productos[i, 2] );
-            }
-            Console.ReadLine();
-        }
-        static void movimientoInventario(string codigo, int cantidad, string tipoMovimiento) {
-            for (int i = 0; i < 5; i++)
-            {
-                 if (productos[i, 0] == codigo) {
-                     if (tipoMovimiento == "+") {
-                         productos[i, 2] = (Int32.Parse(productos[i, 2]) + cantidad).ToString();
-                    } else {
-                         productos[i, 2] = (Int32.Parse(productos[i, 2]) - cantidad).ToString();
-                 }
-             }
-         }
-    }
-
-    static void ingresoDeInventario() {
-    string codigo = "";
-    string cantidad = "";
-
-    Console.Clear();
-    Console.WriteLine("");
-    Console.WriteLine("Ingreso de Productos al Inventario");
-    Console.WriteLine("**********************************");
-    Console.Write("Ingrese el codigo del producto: ");
-    codigo = Console.ReadLine();
-    Console.Write("Ingrese la cantidad del producto: ");
-    cantidad = Console.ReadLine();
-
-    movimientoInventario(codigo, Int32.Parse(cantidad), "+");
-}  
-    static void ajustePositivoDeInventario() {
-    string codigo = "";
-    string cantidad = "";
-
-    Console.Clear();
-    Console.WriteLine("");
-    Console.WriteLine("Ajustes Positivos de Productos al Inventario" );
-    Console.WriteLine("*******************************************");
-    Console.Write("Ingrese el codigo del producto: ");
-    codigo = Console.ReadLine();
-    Console.Write("Ingrese la cantidad del producto: ");
-    cantidad = Console.ReadLine();
-
-    movimientoInventario(codigo, Int32.Parse(cantidad), "+");
-}
-
-    static void salidaDeInventario() {
-    string codigo = "";
-    string cantidad = "";
-
-    Console.Clear();
-    Console.WriteLine("");
-    Console.WriteLine("Salida de Productos del Inventario" );
-    Console.WriteLine("**********************************");
-    Console.Write("Ingrese el codigo del producto: ");
-    codigo = Console.ReadLine();
-    Console.Write("Ingrese la cantidad del producto: ");
-    cantidad = Console.ReadLine();
-
-    movimientoInventario(codigo, Int32.Parse(cantidad), "-");
-}
-    static void ajusteNegativoDeInventario() {
-    string codigo = "";
-    string cantidad = "";
-
-    Console.Clear();
-    Console.WriteLine("");
-    Console.WriteLine("Ajuste Negativo de Productos del Inventario");
-    Console.WriteLine("*******************************************");
-    Console.Write("Ingrese el codigo del producto: ");
-    codigo = Console.ReadLine();
-    Console.Write("Ingrese la cantidad del producto: ");
-    cantidad = Console.ReadLine();
-
-    movimientoInventario(codigo,Int32.Parse(cantidad), "-");
-}
+    {     
         static void Main(string[] args)
         {
              string opcion = "";
+             Inventario inventario = new Inventario();
 
             while (true)
             {
@@ -122,19 +27,19 @@ namespace inventario
                 switch (opcion)
                 {
                     case "1":
-                        listarproductos();
+                        inventario.listarproductos();
                         break;
                     case "2":
-                        ingresoDeInventario();
+                        inventario.ingresoDeInventario();
                         break;
                     case "3":
-                        salidaDeInventario();
+                        inventario.salidaDeInventario();
                         break;
                     case "4":
-                        ajustePositivoDeInventario();
+                        inventario.ajustePositivoDeInventario();
                         break;
                     case "5":
-                        ajusteNegativoDeInventario();
+                        inventario.ajusteNegativoDeInventario();
                         break;
                     default:
                     break;
