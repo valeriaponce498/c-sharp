@@ -1,15 +1,15 @@
 public class Producto
 {
-    public string Codigo { get; set; }
+    public int Codigo { get; set; }
 
     public string Descripcion { get; set; }
-    public int Existencia { get; set; }
 
-    public Producto(string codigo, string descripcion, int existencia)
+    public double Precio { get; set; }
+
+    public Producto(int codigo, string descripcion, double precio)
     {
         Codigo = codigo;
         Descripcion = descripcion;
-        Existencia = existencia;
+        Precio = precio;
     }
-
 }
