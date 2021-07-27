@@ -1,59 +1,52 @@
 ﻿using System;
-
-namespace _10_Ordenes
+namespace Clase_Animales
 {
     class Program
     {
         static void Main(string[] args)
         {
-            DatosdePrueba datos = new DatosdePrueba();
-            string opcion = (" ");
+            Utilidades.EnviarCorreo();
 
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("Sistema de Ordenes");
-                Console.WriteLine("===================");
-                Console.WriteLine("");
-                Console.WriteLine("1 - Lista de Productos");
-                Console.WriteLine("2 - Crear Orden");
-                Console.WriteLine("3 - Lista de Clientes");
-                Console.WriteLine("4 - Lista de Vendedores");
-                Console.WriteLine("5 - Lista de Ordenes");
-                Console.WriteLine("0 - Salir");
-                opcion = Console.ReadLine();
+            Perro p = new Perro();
+            p.Nombre = "Nombre de perro: Copito";
+            p.Patas = 4 ;
+            p.EsDomestico = true;
+            p.Pelaje = "Peludo";
+            p.Comer();
+            p.Caminar();
+            p.Ladrar();
+            p.Color();
+            
 
-                switch (opcion)
-                {
-                    case "1":
-                        datos.ListarProductos();
-                        break;
+            Console.WriteLine(p.Nombre);
+            Console.WriteLine(p.Patas);
 
-                    case "2":
-                        Console.Clear();
-                        datos.crearOrden();
-                        break;
+            Gato g = new Gato();
+            g.Nombre = "Nombre de gato: Lucrecia";
+            g.Patas = 4 ;
+            g.Pelaje = "Peludo";
+            g.Comer();
+            g.Caminar();
+            g.Maullar();
+            
 
-                    case "3":
-                        datos.ListarClientes();
-                        break;
 
-                    case "4":
-                        datos.ListarVendedores();
-                        break;
-                    case "5":
-                        Console.Clear();
-                        datos.ListarOrdenes();
-                        break;
-                    default:
-                        break;
-                }
+            Console.WriteLine(g.Nombre);
+            Console.WriteLine(g.Patas);
 
-                if (opcion == "0")
-                {
-                    break;
-                }
-            }
-        }
+            Mono m = new Mono();
+            m.Nombre = "Nombre de mono:Panchito";
+            m.Patas = 4;
+            p.EsDomestico = true;
+            m.Pelaje = "Medio peludo";
+            m.Comer();
+            m.Caminar();
+            m.Maullar();
+            
+
+            Console.WriteLine(m.Nombre);
+            Console.WriteLine(m.Patas);
+
+         }
     }
-}
+ }
