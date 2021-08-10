@@ -1,52 +1,68 @@
 ﻿using System;
-namespace Clase_Animales
+
+namespace POS
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Utilidades.EnviarCorreo();
+            DatosdePrueba datos = new DatosdePrueba();
+            string opcion = (" ");
 
-            Perro p = new Perro();
-            p.Nombre = "Nombre de perro: Copito";
-            p.Patas = 4 ;
-            p.EsDomestico = true;
-            p.Pelaje = "Peludo";
-            p.Comer();
-            p.Caminar();
-            p.Ladrar();
-            p.Color();
-            
+            while (true)
+            {
 
-            Console.WriteLine(p.Nombre);
-            Console.WriteLine(p.Patas);
+                Console.Clear();
+                Console.WriteLine("                   *******************************************************************************************************");
+                Console.WriteLine("                   *                                ====================================                                 *");
+                Console.WriteLine("                   *                                ||       Valeria`s Tecnology      ||                                 *");
+                Console.WriteLine("                   *                                ====================================                                 *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                ======>     1 - Lista de Productos                                   *");
+                Console.WriteLine("                   *                                ======>     2 - Crear Reporte                                        *");
+                Console.WriteLine("                   *                                ======>     3 - Lista de Clientes                                    *");
+                Console.WriteLine("                   *                                ======>     4 - Lista de Vendedores                                  *");
+                Console.WriteLine("                   *                                ======>     5 - Reporte de Ventas                                    *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                                                                                     *");
+                Console.WriteLine("                   *                                ======>     0 - Salir del Sistema                                    *");
+                Console.WriteLine("                   *******************************************************************************************************");
+                opcion = Console.ReadLine();
 
-            Gato g = new Gato();
-            g.Nombre = "Nombre de gato: Lucrecia";
-            g.Patas = 4 ;
-            g.Pelaje = "Peludo";
-            g.Comer();
-            g.Caminar();
-            g.Maullar();
-            
+                switch (opcion)
+                {
+                    case "1":
+                        datos.ListarProductos();
+                        break;
 
+                    case "2":
+                        Console.Clear();
+                        datos.crearOrden();
+                        break;
 
-            Console.WriteLine(g.Nombre);
-            Console.WriteLine(g.Patas);
+                    case "3":
+                        datos.ListarClientes();
+                        break;
 
-            Mono m = new Mono();
-            m.Nombre = "Nombre de mono:Panchito";
-            m.Patas = 4;
-            p.EsDomestico = true;
-            m.Pelaje = "Medio peludo";
-            m.Comer();
-            m.Caminar();
-            m.Maullar();
-            
+                    case "4":
+                        datos.ListarVendedores();
+                        break;
+                    case "5":
+                        Console.Clear();
+                        datos.ListarOrdenes();
+                        break;
+                    default:
+                        break;
+                }
 
-            Console.WriteLine(m.Nombre);
-            Console.WriteLine(m.Patas);
-
-         }
+                if (opcion == "0")
+                {
+                    break;
+                }
+            }
+        }
     }
- }
+}
